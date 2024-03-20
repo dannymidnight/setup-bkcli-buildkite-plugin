@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "~~~ Setup Buildkite CLI"
+
+# TODO: Negotiate operating system and architecture
+
+OS="linux" # or darwin, freebsd, openbsd, solaris, windows
+ARCH="amd64"
+
+BK_CLI_PATH="$HOME/bin/bk"
+
+if ! command -v bk &> /dev/null
+then
+  curl -L https://github.com/buildkite/cli/releases/download/v2.0.0/cli-${OS}-${ARCH} -o $BK_CLI_PATH
+  chmod +x $BK_CLI_PATH
+fi
+
+bk --version

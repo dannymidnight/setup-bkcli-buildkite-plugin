@@ -1,0 +1,6 @@
+name: Setup Buildkite CLI
+description: Install Buildkite CLI for use in Buildkite
+author: https://github.com/dannymidnight
+requirements:
+  - bash
+  - curl
