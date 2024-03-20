@@ -9,10 +9,13 @@ echo "~~~ Setup Buildkite CLI"
 OS="linux" # or darwin, freebsd, openbsd, solaris, windows
 ARCH="amd64"
 
+PATH="$HOME/bin:$PATH"
 BK_CLI_PATH="$HOME/bin/bk"
 
 if ! command -v bk &> /dev/null
 then
+  echo "Installing Buildkite CLI"
+  mkdir -p $HOME/bin
   curl -L https://github.com/buildkite/cli/releases/download/v2.0.0/cli-${OS}-${ARCH} -o $BK_CLI_PATH
   chmod +x $BK_CLI_PATH
 fi
